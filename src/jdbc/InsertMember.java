@@ -27,7 +27,7 @@ public class InsertMember {
 			System.out.print("이름: ");
 			String name = scan.nextLine();
 			String sql = "insert into member (userid, passwd, name) values (?, ?, ?)";
-																		//  1  2  3 => binding	
+			// 1 2 3 => binding
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userid);
 			pstmt.setString(2, passwd);

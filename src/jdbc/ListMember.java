@@ -12,9 +12,9 @@ public class ListMember {
 		String id = "java";
 		String pwd = "java1234";
 
-		Connection conn = null;	//DB접속
-		PreparedStatement pstmt = null; //SQL실행(Create, Read, Update, Delete:CRUD)
-		ResultSet rs = null; //실행결과 출력
+		Connection conn = null; // DB접속
+		PreparedStatement pstmt = null; // SQL실행(Create, Read, Update, Delete:CRUD)
+		ResultSet rs = null; // 실행결과 출력
 
 		try {
 			Class.forName(driver);

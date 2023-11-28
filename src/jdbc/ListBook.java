@@ -10,15 +10,12 @@ public class ListBook {
 	public static void main(String[] args) {
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521/xe";
-//		 연결문자열
+//		 			 연결문자열
 		String id = "java";
 		String pwd = "java1234";
-		Connection conn = null;
-//		 접속
-		PreparedStatement pstmt = null;
-//		 SQL실행
-		ResultSet rs = null;
-//		 결과셋
+		Connection conn = null; // 접속
+		PreparedStatement pstmt = null; // SQL실행
+		ResultSet rs = null; // 결과셋
 
 		try {
 			Class.forName(driver); // Oracle 드라이버 로딩

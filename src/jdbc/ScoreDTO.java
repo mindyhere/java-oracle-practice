@@ -1,5 +1,6 @@
 package jdbc;
 
+//ScoreDTO.java	: Data Transfer Object(데이터 전달 객체)
 public class ScoreDTO {
 	private String student_no;
 	private String name;
@@ -65,9 +66,9 @@ public class ScoreDTO {
 	}
 
 //	ctrl + space > Constructor (기본생성자)
-	public ScoreDTO() {	} 
+	public ScoreDTO() {}
 
-//	Generate Constructor using Fields
+//	우클릭 > Source > Generate Constructor using Fields
 	public ScoreDTO(String student_no, String name, int kor, int eng, int tot, double avg) {
 		this.student_no = student_no;
 		this.name = name;
