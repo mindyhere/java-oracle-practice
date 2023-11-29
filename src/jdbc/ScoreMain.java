@@ -14,6 +14,9 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+//ScoreMain.java => 시작화면설계(GUI), 점수 목록 화면표시
+//ScoreMain 입력 => SaveScore 저장 => ScoreMain의 화면갱신 => refresh.Table 현재창닫기 
+
 public class ScoreMain extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -67,6 +70,7 @@ public class ScoreMain extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SaveScore form = new SaveScore(ScoreMain.this);
+//				추가 폼
 				form.setVisible(true);
 				form.setLocation(200, 200);
 			}
@@ -112,10 +116,10 @@ public class ScoreMain extends JFrame {
 
 	public void refreshTable() {
 //		dao => DB (=> Vector => Model) => JTable
-//					 데이터저장		변환/대행		표시
+//					 데이터저장		변환/대행	  화면표시
 
-		DefaultTableModel model = new DefaultTableModel(dao.listScore(), cols); // 데이터 전달
-//														items => 데이터	  헤더
+		DefaultTableModel model = new DefaultTableModel(dao.listScore(), cols); 
+//		모델에 데이터 전달  								items => 데이터	  헤더
 		table.setModel(model); // 화면 반영
 	}
 }

@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+//SaveScore.java => 점수 등록 화면
 public class SaveScore extends JFrame {
 
 	private static final long serialVersionUID = 1L;
