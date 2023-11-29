@@ -34,7 +34,7 @@ public class DB {
 //oracle.prop => DB접속정보 프로퍼티파일
 //DB.java => DB 접속, Connection 리턴
 //ScoreDTO.java	=> 레코드. Data Transfer Object(데이터 전달 객체)
-//ScoreDAO.java	=> sql문 실행. Data Access Object(데이터 접근 객체)
-//ScoreMain.java => 시작화면설계(gui), 점수 목록 화면
+//ScoreDAO.java	=> SQL문 실행. Data Access Object(데이터 접근 객체)
+//ScoreMain.java => 시작화면설계(GUI), 점수 목록 화면
 //SaveScore.java => 점수 등록 화면
 //EditScore.java => 점수 수정/삭제 화면

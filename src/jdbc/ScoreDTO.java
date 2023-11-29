@@ -6,11 +6,19 @@ public class ScoreDTO {
 	private String name;
 	private int kor;
 	private int eng;
+	private int mat;
 	private int tot;
 	private double avg;
 
+//	우클릭 > Source > Generate toString()
+	@Override
+	public String toString() {
+		return "ScoreDTO [student_no=" + student_no + ", name=" + name + ", kor=" + kor + ", eng=" + eng + ", mat="
+				+ mat + ", tot=" + tot + ", avg=" + avg + "]";
+	}
+
 //	우클릭 > Source > Generate getters & setters
-	public String getStudent_no() {
+public String getStudent_no() {
 		return student_no;
 	}
 
@@ -42,6 +50,14 @@ public class ScoreDTO {
 		this.eng = eng;
 	}
 
+	public int getMat() {
+		return mat;
+	}
+
+	public void setMat(int mat) {
+		this.mat = mat;
+	}
+
 	public int getTot() {
 		return tot;
 	}
@@ -58,23 +74,17 @@ public class ScoreDTO {
 		this.avg = avg;
 	}
 
-//	우클릭 > Source > Generate toString()
-	@Override
-	public String toString() {
-		return "ScoreDTO [student_no=" + student_no + ", name=" + name + ", kor=" + kor + ", eng=" + eng + ", tot="
-				+ tot + ", avg=" + avg + "]";
+//ctrl + space > Constructor (기본생성자)
+	public ScoreDTO() {
 	}
 
-//	ctrl + space > Constructor (기본생성자)
-	public ScoreDTO() {}
-
 //	우클릭 > Source > Generate Constructor using Fields
-	public ScoreDTO(String student_no, String name, int kor, int eng, int tot, double avg) {
+	public ScoreDTO(String student_no, String name, int kor, int eng, int mat) {
+		super();
 		this.student_no = student_no;
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
-		this.tot = tot;
-		this.avg = avg;
+		this.mat = mat;
 	}
 }
