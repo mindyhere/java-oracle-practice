@@ -16,7 +16,7 @@ public class ScoreDAO {
 			String sql = "delete from score where student_no = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, student_no);
-			result = pstmt.executeUpdate();
+			result = pstmt.executeUpdate(); // SQL실행, 삭제된 레코드 수를 result에 저장
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,7 +65,7 @@ public class ScoreDAO {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-			
+
 			try {
 				if (conn != null)
 					conn.close();

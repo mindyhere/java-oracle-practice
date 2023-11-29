@@ -58,6 +58,8 @@ public class EditScore extends JFrame {
 		contentPane.add(lbl5);
 
 		tfStudentNo = new JTextField();
+		tfStudentNo.setEditable(false);
+//		학번을 수정할 경우, ScoreDAO 에서 SQL문이 충돌할 가능성. 학번 => 편집불가로 설정함
 		tfStudentNo.setBounds(105, 23, 116, 21);
 		contentPane.add(tfStudentNo);
 		tfStudentNo.setColumns(10);
@@ -88,7 +90,7 @@ public class EditScore extends JFrame {
 				ScoreDAO dao = new ScoreDAO();
 				String student_no = tfStudentNo.getText();
 				String name = tfName.getText();
-				int kor = Integer.valueOf(tfKor.getText());
+				int kor = Integer.valueOf(tfKor.getText()); // Integer.valueOf(스트링) => 정수로
 				int eng = Integer.valueOf(tfEng.getText());
 				int mat = Integer.valueOf(tfMat.getText());
 				dao.updateScore(new ScoreDTO(student_no, name, kor, eng, mat));
@@ -111,7 +113,16 @@ public class EditScore extends JFrame {
 		JButton btnDelete = new JButton("삭제");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				int response = JOptionPane.showConfirmDialog(EditScore.this, "삭제하시겠습니까?");
+//																표시할 화면		   출력화면 메세지
+				if (response == JOptionPane.YES_OPTION) { // YES(0), NO(1), CANCEL(2)
+					String student_no = tfStudentNo.getText();
+					ScoreDAO dao = new ScoreDAO();
+					dao.deleteScore(student_no);
+					parent.refreshTable(); // 요청 => 모델 => 테이블(화면 재구성)
+					JOptionPane.showMessageDialog(EditScore.this, "삭제되었습니다.");
+					dispose();
+				}
 			}
 		});
 		btnDelete.setBounds(140, 216, 97, 23);

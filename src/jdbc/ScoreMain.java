@@ -82,7 +82,7 @@ public class ScoreMain extends JFrame {
 				if (idx == -1) {
 //					아무것도 선택하지 않았을 때 -1
 					JOptionPane.showMessageDialog(ScoreMain.this, "편집할 레코드를 선택하세요.");
-					return; //리턴타입 void => 메서드 종료
+					return; // 리턴타입 void => 메서드 종료
 				}
 				String student_no = String.valueOf(table.getValueAt(idx, 0));
 //							 (Obj타입을 String으로) <= 테이블.getValueAt(행번호, 열번호)
