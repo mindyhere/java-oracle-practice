@@ -14,25 +14,29 @@ public class EmpDAO {
 		ResultSet rs = null;
 
 		try {
-			conn = DB.oraConn();
-			String sql = "select empno, ename, job, hiredate, sal, dname from emp e, dept d where e.deptno = d.deptno and dname like ?";
-			pstmt = conn.prepareStatement(sql);
+			conn = DB.oraConn(); // DB접속
+			String sql = "select empno, ename, job, hiredate, sal, dname from emp e, dept d "
+					+ "where e.deptno = d.deptno and dname like ?";
+//			System.out.println(sql);	SQL문장 확인(출력)
+			pstmt = conn.prepareStatement(sql); // 완성되지 않은 SQL문(sql)을 준비
 
 			if (dname.equals("전체부서")) {
 				dname = "%";
 			}
 			pstmt.setString(1, dname);
-			rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery(); // 완성된 SQL 실행
 
 			while (rs.next()) {
-				Vector row = new Vector();
+				Vector row = new Vector(); // 1개의 레코드 저장 벡터
 				row.add(rs.getInt("empno"));
+//					참조변수.get자료형("필드명" or 필드번호)	
+//				  행.add(값)
 				row.add(rs.getString("ename"));
 				row.add(rs.getString("job"));
 				row.add(rs.getDate("hiredate"));
 				row.add(rs.getInt("sal"));
 				row.add(rs.getString("dname"));
-				items.add(row);
+				items.add(row); 	//전체 벡터에 데이터 저장
 			}
 
 		} catch (Exception e) {
