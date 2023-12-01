@@ -15,23 +15,22 @@ public class StudExDAO {
 
 		try {
 			conn = DB.oraConn();
-			String sql = "select studno, sname, grade, profno, majorno, mname from stud s, major m "
-					+ "where s.majorno=m.majorno and mname like ?";
+			String sql = "select studno, sname, grade, profno, mname from stud s, major m "
+					+ "where s.majorno = m.majorno and mname like ?";
 			pstmt = conn.prepareStatement(sql);
 
-			if (mname.equals("전체학과")) {
+			if (mname.equals("total")) {
 				mname = "%";
 			}
 			pstmt.setString(1, mname);
-
 			rs = pstmt.executeQuery();
+			
 			while (rs.next()) {
 				Vector row = new Vector();
 				row.add(rs.getInt("studno"));
 				row.add(rs.getString("sname"));
 				row.add(rs.getInt("grade"));
 				row.add(rs.getInt("profno"));
-				row.add(rs.getInt("majorno"));
 				row.add(rs.getString("mname"));
 				items.add(row);
 			}
@@ -70,17 +69,18 @@ public class StudExDAO {
 
 		try {
 			conn = DB.oraConn();
-			String sql = "select studno, sname, grade, profno, s.majorno, mname from stud s, major m "
-					+ "where s.majorno=m.majorno and s.majorno like ?";
+			String sql = "select studno, sname, grade, profno, mname from stud s, major m "
+					+ "where s.majorno = m.majorno and s.majorno like ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, majorno);
 			rs = pstmt.executeQuery();
+			
 			while (rs.next()) {
 				StudExDTO dto = new StudExDTO();
 				dto.setStudno(rs.getInt("studno"));
 				dto.setSname(rs.getString("sname"));
 				dto.setGrade(rs.getInt("grade"));
-				dto.setMajorno(rs.getInt("majorno"));
+				dto.setProfno(rs.getInt("profno"));
 				dto.setMname(rs.getString("mname"));
 				items.add(dto);
 			}
